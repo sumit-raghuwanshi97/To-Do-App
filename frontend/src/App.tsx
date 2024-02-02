@@ -7,7 +7,7 @@ import TaskScreen from './presentation/assests/components/screens/TaskScreen';
 
 function App() {
   return (
-    <div className="App">
+    <div className="flex flex-col min-h-screen">
      <Router>
       <Header/>
       <TaskFrom/>

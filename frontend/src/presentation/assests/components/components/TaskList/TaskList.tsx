@@ -11,7 +11,7 @@ interface TaskListProps {
 const TaskList = ({ tasks, onToggleComplete, onDeleteTask }:TaskListProps) => {
   return (
     <div>
-     <div className="mt-4">
+     <div className="m-3">
       {tasks.map((task) => (
         <TaskItem
           key={task.id}

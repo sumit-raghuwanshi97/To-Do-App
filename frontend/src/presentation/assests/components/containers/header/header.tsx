@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-const header = () => {
+const Header = () => {
   return (
-    <header className="bg-green-500 text-white text-center py-4">
-    <h1 className="text-2xl font-bold">To-Do App</h1>
-  </header>
-  )
-}
+    <header className="bg-gradient-to-r bg-[#0C2D57] text-white text-center py-16 shadow-md">
+      <h1 className="text-4xl font-extralight tracking-wide">My Own To-Do App</h1>
+    </header>
+  );
+};
 
-export default header
+export default Header;

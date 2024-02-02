@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { DataFetchState } from '../../domain/data-fetch-state.entity';
 import { Task } from '../../domain/interface/task';
-import { fetchUserTasksThunk } from '../reducer/tasks-screen.reducer';
+import { deleteUserTaskThunk, fetchUserTasksThunk, updateUserTaskThunk } from '../reducer/tasks-screen.reducer';
 
 export interface UserTasksState {
   tasks : DataFetchState<Task[]>;
@@ -32,6 +32,18 @@ export const userTasksSlice = createSlice({
         if (action.payload) {
           state.tasks.data = action.payload;
         }
+      })
+      .addCase(updateUserTaskThunk.fulfilled, (state, action) => {
+        const updatedTask = action.payload;
+        const index = state.tasks.data?.findIndex(task => task.id === updatedTask.id);
+        if (index !== undefined  && index !== -1) {
+          state.tasks.data![index] = updatedTask;
+        }
+      })
+      // Delete Task Thunk
+      .addCase(deleteUserTaskThunk.fulfilled, (state, action) => {
+        const deletedTaskId = action.meta.arg;
+        state.tasks.data = state.tasks.data?.filter(task => task.id !== deletedTaskId);
       });
   },
 });
