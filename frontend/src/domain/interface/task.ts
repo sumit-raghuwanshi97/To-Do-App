@@ -3,4 +3,8 @@ export interface Task {
     description: string;
     completed: boolean;
 }
+
+export interface TasksFetchedResponse {
+    tasks : Task[];
+}
   
