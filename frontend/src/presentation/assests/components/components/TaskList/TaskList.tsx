@@ -4,8 +4,8 @@ import TaskItem from './TaskItem';
 
 interface TaskListProps {
     tasks: Task[];
-    onToggleComplete: (taskId: number) => void;
-    onDeleteTask: (taskId: number) => void;
+    onToggleComplete: (taskId: string) => void;
+    onDeleteTask: (taskId: string) => void;
 }
 
 const TaskList = ({ tasks, onToggleComplete, onDeleteTask }:TaskListProps) => {
